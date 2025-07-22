@@ -5,7 +5,8 @@ import pandas as pd
 import time
 import os
 
-LOG_PATH = r'D:\fraud-detection-ecommerce\logs\predictions_log.csv'
+# ✅ Use relative path for deployment
+LOG_PATH = 'logs/predictions_log.csv'
 
 st.set_page_config(page_title="Real-Time Fraud Detection", layout="wide")
 st.title("🚨 Real-Time Fraud Detection Dashboard")
@@ -47,6 +48,7 @@ while True:
             st.error(f"❌ Unexpected error: {e}")
 
     else:
-        st.warning("📁 Log file not found. Run the simulation to generate predictions.")
+        with placeholder.container():
+            st.warning("📁 Log file not found. Run the simulation to generate predictions.")
 
     time.sleep(2)
